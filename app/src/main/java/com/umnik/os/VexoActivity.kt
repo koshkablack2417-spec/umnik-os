@@ -124,8 +124,9 @@ class VexoActivity : Activity() {
 
             webChromeClient = object : WebChromeClient() {
                 override fun onProgressChanged(view: WebView?, newProgress: Int) {
-                    progress.progress = newProgress
-                    progress.visibility = if (newProgress < 100) View.VISIBLE else View.GONE
+                    val bar = this@VexoActivity.progress
+                    bar.progress = newProgress
+                    bar.visibility = if (newProgress < 100) View.VISIBLE else View.GONE
                 }
             }
         }
