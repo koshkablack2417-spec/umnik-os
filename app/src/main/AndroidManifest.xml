@@ -2,12 +2,19 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
-    <!-- Нужно, чтобы лаунчер видел список установленных приложений (Android 11+) -->
+    <!-- Нужно, чтобы лаунчер видел установленные приложения, распознавание речи и озвучку (Android 11+) -->
     <queries>
         <intent>
             <action android:name="android.intent.action.MAIN" />
             <category android:name="android.intent.category.LAUNCHER" />
+        </intent>
+        <intent>
+            <action android:name="android.speech.RecognitionService" />
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.TTS_SERVICE" />
         </intent>
     </queries>
 
@@ -22,7 +29,8 @@
             android:name=".HomeActivity"
             android:exported="true"
             android:launchMode="singleTask"
-            android:stateNotNeeded="true">
+            android:stateNotNeeded="true"
+            android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.HOME" />
@@ -37,6 +45,39 @@
             android:configChanges="orientation|screenSize|keyboardHidden|screenLayout|smallestScreenSize"
             android:exported="false"
             android:label="Vexo" />
+
+        <activity
+            android:name=".StoreActivity"
+            android:exported="false"
+            android:label="Умник Store" />
+
+        <activity
+            android:name=".WeatherActivity"
+            android:exported="false"
+            android:label="Погода"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".AssistantActivity"
+            android:exported="false"
+            android:label="Умник"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".TrioActivity"
+            android:exported="false"
+            android:label="Trio" />
+
+        <activity
+            android:name=".UmplayActivity"
+            android:exported="false"
+            android:label="Umplay" />
+
+        <activity
+            android:name=".SettingsActivity"
+            android:exported="false"
+            android:label="Настройки"
+            android:windowSoftInputMode="adjustResize" />
 
         <activity
             android:name=".NotesActivity"

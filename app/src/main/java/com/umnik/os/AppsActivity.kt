@@ -24,6 +24,7 @@ class AppsActivity : Activity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Ui.load(this)
         window.statusBarColor = Ui.BG_TOP
         window.navigationBarColor = Ui.BG_BOTTOM
 
